@@ -110,7 +110,7 @@ export default class Popular extends React.Component {
       <React.Fragment>
         <LangaugesNav selected={selectedLanguage} onUpdateLanguage={this.updateLanguage} />
         {this.isLoading() && <p>LOADING</p>}
-        {error && <p>{error}</p>}
+        {error && <p className='error'>{error}</p>}
         {repos[selectedLanguage] && <ReposGrid repos={repos[selectedLanguage]} />}
       </React.Fragment>
     );
