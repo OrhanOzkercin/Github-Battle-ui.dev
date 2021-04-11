@@ -73,26 +73,32 @@ export default class Results extends React.Component {
       return <p className='center-text error'>{error}</p>;
     }
     return (
-      <div className='grid space-around container-sm'>
-        <Card
-          header={winner.score === loser.score ? 'Tie' : 'Winner'}
-          name={winner.profile.login}
-          subheader={winner.profile.login}
-          avatar={winner.profile.avatar_url}
-          href={winner.profile.login}
-        >
-          <ProfileList profile={winner.profile} />
-        </Card>
-        <Card
-          header={winner.score === loser.score ? 'Tie' : 'Loser'}
-          name={loser.profile.login}
-          subheader={loser.profile.login}
-          avatar={loser.profile.avatar_url}
-          href={loser.profile.login}
-        >
-          <ProfileList profile={loser.profile} />
-        </Card>
-      </div>
+      <>
+        {' '}
+        <div className='grid space-around container-sm'>
+          <Card
+            header={winner.score === loser.score ? 'Tie' : 'Winner'}
+            name={winner.profile.login}
+            subheader={winner.profile.login}
+            avatar={winner.profile.avatar_url}
+            href={winner.profile.login}
+          >
+            <ProfileList profile={winner.profile} />
+          </Card>
+          <Card
+            header={winner.score === loser.score ? 'Tie' : 'Loser'}
+            name={loser.profile.login}
+            subheader={loser.profile.login}
+            avatar={loser.profile.avatar_url}
+            href={loser.profile.login}
+          >
+            <ProfileList profile={loser.profile} />
+          </Card>
+        </div>
+        <button onClick={this.props.onReset} className='btn dark-btn btn-space'>
+          Reset
+        </button>
+      </>
     );
   }
 }
